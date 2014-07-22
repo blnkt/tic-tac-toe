@@ -1,0 +1,22 @@
+body {
+  font-family: 'Iceland', cursive;
+  text-align: center;
+  margin: 20px auto;
+  font-size: 4em;
+}
+
+table {
+  margin: 0 auto;
+}
+
+td {
+  border: 1px solid red;
+  height: 150px;
+  width: 150px;
+  background-color: salmon;
+}
+
+td:hover {
+  cursor: pointer;
+  background-color: #69dcff;
+}

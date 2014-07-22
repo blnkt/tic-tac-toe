@@ -91,3 +91,35 @@ var Game = {
     }
   }
 }
+
+$(document).ready(function(){
+  var newGame = Object.create(Game);
+  newGame.initialize();
+  var currentPlayer;
+  var counter = 0;
+    $('table td').click(function() {
+        if(counter % 2 == 0) {
+          currentPlayer = newGame.playerX;
+          var space = $(this).attr('class');
+          newGame.board[space].mark(currentPlayer);
+          $(this).text("X");
+          counter += 1;
+          console.log(newGame.winCheck());
+        } else {
+          currentPlayer = newGame.playerO;
+          var space = $(this).attr('class');
+          newGame.board[space].mark(currentPlayer);
+          $(this).text("O");
+          counter += 1;
+          console.log(newGame.winCheck());
+        }
+      } else if ((newGame.winCheck() === true) && (counter<=9)){
+        alert("WINNER");
+      } else {
+        alert("DRAW");
+      }
+   });
+});
+
+
+// if ((newGame.winCheck() === false) && (counter<=9))
