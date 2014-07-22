@@ -2,7 +2,7 @@ body {
   font-family: 'Iceland', cursive;
   text-align: center;
   margin: 20px auto;
-  font-size: 4em;
+  font-size: 10em;
 }
 
 table {
@@ -10,7 +10,7 @@ table {
 }
 
 td {
-  border: 1px solid red;
+  border: 1px solid white;
   height: 150px;
   width: 150px;
   background-color: salmon;
@@ -19,4 +19,12 @@ td {
 td:hover {
   cursor: pointer;
   background-color: #69dcff;
+}
+
+h1 {
+  font-size: 1.1em;
+}
+
+#end-results {
+  display: none;
 }

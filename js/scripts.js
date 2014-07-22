@@ -98,12 +98,23 @@ $(document).ready(function(){
   var currentPlayer;
   var counter = 0;
     $('table td').click(function() {
+      if (($(this).text() !== "X") && ($(this).text() !== "O")) {
         if(counter % 2 == 0) {
           currentPlayer = newGame.playerX;
           var space = $(this).attr('class');
           newGame.board[space].mark(currentPlayer);
           $(this).text("X");
           counter += 1;
+          if (newGame.winCheck() === true) {
+            $("#end-results").show();
+            $(".game-over").text("Player " + currentPlayer.name +" Wins!  Play Again?");
+          }
+          if (counter>8) {
+            $("#end-results").show();
+            $(".game-over").text("Draw! Play Again?");
+            $("form").submit(function(){
+            });
+          }
           console.log(newGame.winCheck());
         } else {
           currentPlayer = newGame.playerO;
@@ -111,14 +122,20 @@ $(document).ready(function(){
           newGame.board[space].mark(currentPlayer);
           $(this).text("O");
           counter += 1;
+          if (newGame.winCheck() === true) {
+            $("#end-results").show();
+            $(".game-over").text("Player " + currentPlayer.name +" Wins!  Play Again?");
+          }
+          if (counter>8) {
+            $("#end-results").show();
+            $(".game-over").text("Draw! Play Again?");
+            $("form").submit(function(){
+            });
+          }
           console.log(newGame.winCheck());
         }
-      } else if ((newGame.winCheck() === true) && (counter<=9)){
-        alert("WINNER");
-      } else {
-        alert("DRAW");
       }
-   });
+    });
 });
 
 
